@@ -35,17 +35,17 @@ This project looks at how a small language model changes its next-token predicti
 | 5 | `blue` | 0.101 |
 | final | `blue` | 0.138 |
 
-For this prompt, the tuned lens starts off rough in the early layers, but by the middle layers it lines up with the final model output more clearly than the logit lens does.
+For this prompt, the tuned lens starts off rough in the early layers, but by the middle layers it lines up with the final model output sooner than the logit lens does. The tuned lens strategy appears to be a bit more "systematic" than that of the logit lens, whose initial predictions appear to be completely random (e.g., a quotation mark and люч = sea bass?).
 
 ## Layer-by-Layer Visual
 
-`layer-by-layer.png`
+![Layer-by-layer visual](figures/layer-by-layer.png)
 
 This is the main single-prompt visual. It shows the input at the top, then each layer's predicted token and the probability attached to that token.
 
 ## Batch Testing
 
-`avg-prob+agree.png`
+![Batch testing](figures/avg-prob+agree.png)
 
 This graph summarizes a few prompts at once. It shows:
 
@@ -54,7 +54,7 @@ This graph summarizes a few prompts at once. It shows:
 
 ## Heatmap
 
-`heatmap.png`
+![Heatmap](figures/heatmap.png)
 
 The heatmap shows top-token probabilities across prompts and layers. Each cell includes the predicted token and its probability, so it is easier to see both confidence and how predictions change over depth.
 
