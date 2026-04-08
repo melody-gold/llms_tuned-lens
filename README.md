@@ -25,15 +25,15 @@ This project looks at how a small language model changes its next-token predicti
 
 ### Tuned Lens
 
-| layer | predicted token | probability | next_2_predictions |
-|---|---|---:|---|
-| 0 | `a` | 0.189 | `the (0.080) | an (0.057)` |
-| 1 | `a` | 0.077 | `the (0.032) | an (0.022)` |
-| 2 | `a` | 0.108 | `also (0.034) | the (0.027)` |
-| 3 | `blue` | 0.351 | `green (0.111) | red (0.108)` |
-| 4 | `blue` | 0.300 | `red (0.164) | green (0.089)` |
-| 5 | `blue` | 0.101 | `red (0.093) | green (0.075)` |
-| final | `blue` | 0.138 | `red (0.094) | green (0.089)` |
+| layer | predicted token | probability | 2nd prediction | 3rd prediction |
+|:---:|---|---|---|---|
+| 0 | `a` | 0.189 | `the` (0.080) | `an` (0.057) |
+| 1 | `a` | 0.077 | `the` (0.032) | `an` (0.022) |
+| 2 | `a` | 0.108 | `also` (0.034) | `the` (0.027) |
+| 3 | `blue` | 0.351 | `green` (0.111) | `red` (0.108) |
+| 4 | `blue` | 0.300 | `red` (0.164) | `green` (0.089) |
+| 5 | `blue` | 0.101 | `red` (0.093) | `green` (0.075) |
+| final | `blue` | 0.138 | `red` (0.094) | `green` (0.089) |
 
 For this prompt, the tuned lens starts off rough in the early layers, but by the middle layers it lines up with the final model output sooner than the logit lens does. The tuned lens strategy appears to be a bit more "systematic" than that of the logit lens, whose initial predictions appear to be completely random (e.g., a quotation mark and люч = sea bass?).
 
